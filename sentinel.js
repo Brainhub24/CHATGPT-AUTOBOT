@@ -1,6 +1,7 @@
 /**
  * Sentinel.js Autobot - An Automated Button Clicker
  * Version: 1.0.0
+ * Github: www.github.com/Brainhub24/CHATGPT-AUTOBOT
  *
  * DISCLAIMER:
  * This script is provided for educational purposes only and should be used responsibly.
