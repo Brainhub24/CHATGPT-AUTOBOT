@@ -34,7 +34,7 @@ It is a powerful tool that automatically clicks the specific button on the "chat
 
 ## Disclaimer
 
-**Please use the 'Sentinel.js - Autobot' responsibly and only on websites where you have the necessary permissions.
+**Please use the 'Sentinel.js - Autobot' responsibly.
 Automated scripts may violate website terms of service and lead to legal consequences. Use at your own risk.**
 
 ## Join the Discussion
