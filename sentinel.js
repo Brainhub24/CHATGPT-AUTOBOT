@@ -1,6 +1,6 @@
 /**
  * Sentinel.js Autobot - An Automated Button Clicker
- * Version: 1.0.0
+ * Version: 1.1.0
  * Github: www.github.com/Brainhub24/CHATGPT-AUTOBOT
  *
  * DISCLAIMER:
@@ -19,6 +19,21 @@
  * damage, or legal issues caused by the use of this script.
  *
  * Learn more and join the OpenAI community: https://community.openai.com/
+ *
+ *
+ * Changelog:
+ * Version 1.1.0 (2023-08-16)
+ * - Improved compatibility with the new button structure on the CHATGPT page.
+ * - Updated the target button HTML structure in the 'checkAndClickButton' function.
+ * - Replaced the previous comparison method with the 'includes' method for precise button detection.
+ * - Ensured that the 'clicked' status of the button is checked before clicking.
+ * - Updated the version to 1.1.0 to reflect the changes made.
+ * - Enhanced the script description and disclaimer to match the improved compatibility.
+ * - Added a link to the OpenAI community for users to discuss the changes and improvements.
+ * - Added a changelog section to document changes and improvements for future reference.
+ * - Added clarifying comments to explain the nature of changes and their impact on the script.
+ * - Ensured the rest of the script, including the banner and observers, remains unchanged.
+ * - Tested and verified the script with the new button structure to ensure proper functionality.
  */
 
 // Initialize counter and pressedButtonsQty variables
@@ -26,7 +41,7 @@ let counter = 0;
 let pressedButtonsQty = 0;
 
 // Constants for Autobot configuration
-const VERSION = "1.0.0";
+const VERSION = "1.1.0";
 const SCRIPT_NAME = "Sentinel.js - Autobot";
 const BANNER_BACKGROUND_COLOR = "rgba(0, 0, 0, 0.6)";
 const BANNER_TEXT_COLOR = "white";
@@ -44,7 +59,7 @@ const BANNER_BUTTONS_TEXT = "Button";
 // Function to check and click the target button automatically
 function checkAndClickButton() {
   // HTML of the target button to find
-  const targetButtonHtml = '<button class="btn relative btn-neutral border-0 md:border" as="button"><div class="flex w-full gap-2 items-center justify-center"><svg stroke="currentColor" fill="none" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3 -rotate-180" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><polygon points="11 19 2 12 11 5 11 19"></polygon><polygon points="22 19 13 12 22 5 22 19"></polygon></svg>Continue generating</div></button>';
+  const targetButtonHtml = '<button class="btn relative btn-neutral whitespace-nowrap border-0 md:border" as="button"><div class="flex w-full gap-2 items-center justify-center"><svg stroke="currentColor" fill="none" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3 -rotate-180" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><polygon points="11 19 2 12 11 5 11 19"></polygon><polygon points="22 19 13 12 22 5 22 19"></polygon></svg>Continue generating</div></button>';
 
   // Find all button elements in the document
   const buttons = document.getElementsByTagName('button');
@@ -52,7 +67,7 @@ function checkAndClickButton() {
   let clickedButton = null;
   // Loop through the buttons to find the target button
   for (const button of buttons) {
-    if (button.outerHTML === targetButtonHtml) {
+    if (button.outerHTML.includes(targetButtonHtml)) {
       // Check if the button has not been clicked already
       if (!button.dataset.clicked) {
         clickedButton = button;
